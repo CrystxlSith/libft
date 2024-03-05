@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wbelyne <wbelyne@student.42.fr>            +#+  +:+       +#+        */
+/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/03/04 03:41:07 by wbelyne          ###   ########.fr       */
+/*   Updated: 2024/03/05 16:44:56 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	ft_toupper(int c);
 int	ft_tolower(int c);
 int	ft_isascii(int c);
 void	ft_putchar(char c);
-void	ft_putstr(char const *s)
+void	ft_putstr(char const *s);
+char	*ft_strdup(const char *s);
+char	*ft_strncpy(char *dest, const char *src, size_t n);
+char	*ft_strcpy(char *dest, const char *src);
 
 #endif
