@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wbelyne <wbelyne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 16:48:11 by crystal           #+#    #+#             */
-/*   Updated: 2024/03/05 16:55:47 by crystal          ###   ########.fr       */
+/*   Updated: 2024/03/06 15:03:05 by wbelyne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ void	ft_strclr(char *s)
 	int	j;
 
 	j = 0;
-	i = ft_strlen(s);
-	while (j < i)
+	i = 0;
+	while (s[i])
 	{
-		s[j] = '\0';
-		j++;
+		s[i] = '\0';
+		i++;
 	}
-	s[j] = '\0';
+	s[i] = '\0';
 }
 
 int main(int argc, char const *argv[])
 {
-	char *str = "ou oui baguette";
+	char str[15] = "ou oui baguette";
 	ft_strclr(str);	
 	return 0;
 }
