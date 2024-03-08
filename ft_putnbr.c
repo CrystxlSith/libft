@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 16:48:11 by crystal           #+#    #+#             */
-/*   Updated: 2024/03/07 14:18:38 by crystal          ###   ########.fr       */
+/*   Created: 2024/03/07 14:22:30 by crystal           #+#    #+#             */
+/*   Updated: 2024/03/07 14:43:23 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void	ft_putnbr(int	n)
 {
-	int	i;
-	int	j;
+	long int	nb;
 
-	j = 0;
-	i = 0;
-	while (s[i])
+	nb = n;
+	if (nb < 0)
 	{
-		s[i] = '\0';
-		i++;
+		ft_putchar('-');
+		nb = -nb;
 	}
-	s[i] = '\0';
+	if (nb >= 0 && nb <= 9)
+		ft_putchar(nb + 48);
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
 }
