@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/03/07 15:21:59 by crystal          ###   ########.fr       */
+/*   Updated: 2024/03/16 19:37:59 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char	*ft_strdup(const char *s);
 char	*ft_strncpy(char *dest, const char *src, size_t n);
 char	*ft_strcpy(char *dest, const char *src);
 void	ft_strclr(char *s);
-void	ft_putnbr(int	n);
+void	ft_putnbr(int n);
 char	*ft_itoa(int n);
+int	ft_atoi(const char *nptr);
 
 #endif
