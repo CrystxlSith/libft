@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wbelyne <wbelyne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/03/16 19:37:59 by crystal          ###   ########.fr       */
+/*   Updated: 2024/03/19 01:37:48 by wbelyne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	ft_strclr(char *s);
 void	ft_putnbr(int n);
 char	*ft_itoa(int n);
 int	ft_atoi(const char *nptr);
+int	ft_isdigit(int c);
 
 #endif

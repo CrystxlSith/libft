@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbelyne <wbelyne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 19:23:10 by crystal           #+#    #+#             */
-/*   Updated: 2024/03/19 02:00:21 by wbelyne          ###   ########.fr       */
+/*   Created: 2024/03/19 01:14:27 by wbelyne           #+#    #+#             */
+/*   Updated: 2024/03/19 01:36:15 by wbelyne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_isdigit(int c)
 {
-	int	result;
-	int	sign;
-	int	i;
-
-	i = 0;
-	result = 0;
-	sign = 1;
-	while (nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	if (nptr[i] == '+')
-		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + nptr[i] - 48;
-		i++;
-	}
-	return (result * sign);
+	if (c >= 0 && c <= 9)
+		return (1);
+	return (0);
 }
