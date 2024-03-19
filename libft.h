@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wbelyne <wbelyne@student.42.fr>            +#+  +:+       +#+        */
+/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/03/19 01:37:48 by wbelyne          ###   ########.fr       */
+/*   Updated: 2024/03/19 20:58:29 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	ft_putnbr(int n);
 char	*ft_itoa(int n);
 int	ft_atoi(const char *nptr);
 int	ft_isdigit(int c);
+int	ft_isalnum(int c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
