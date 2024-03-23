@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 03:38:17 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/03/16 19:14:24 by crystal          ###   ########.fr       */
+/*   Updated: 2024/03/23 02:32:28 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	ft_putstr(char const *s)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	write(1, s, i);
+	if (s == NULL)
+		return;
+	while (*s)
+	{
+		write(1, s, 1);
+		s++;
+	}
 }
