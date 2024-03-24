@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbelyne <wbelyne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/04 03:38:17 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/03/23 03:15:55 by wbelyne          ###   ########.fr       */
+/*   Created: 2024/03/24 11:50:19 by wbelyne           #+#    #+#             */
+/*   Updated: 2024/03/24 11:59:06 by wbelyne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (s == NULL)
-		return ;
-	while (*s)
+	size_t	i;
+
+	i = 0;
+	while ((char *)b[i] && i < len)
 	{
-		write(1, s, 1);
-		s++;
+		(char *)b[i] = c;
+		i++;
 	}
+	return ((char *)b);	
+}
+
+int main(void)
+{
+	char *str = "mangerd cul";
+	ft_putstr(ft_memset(str, 'a', 4));
+	return 0;
 }
