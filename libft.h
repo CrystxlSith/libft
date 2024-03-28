@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/03/27 19:47:59 by crystal          ###   ########.fr       */
+/*   Updated: 2024/03/28 13:54:54 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ char	**ft_split(char const *s, char c);
 char	*ft_strtrim(char const *s1, char const *set);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 
 #endif
