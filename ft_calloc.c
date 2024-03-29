@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 15:58:22 by crystal           #+#    #+#             */
-/*   Updated: 2024/03/29 17:08:12 by crystal          ###   ########.fr       */
+/*   Updated: 2024/03/29 17:21:27 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,4 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	else
 		ft_bzero(ptr, nmemb);
 	return (ptr);
-}
-
-int main(int argc, char const *argv[])
-{
-	
-	return 0;
 }
