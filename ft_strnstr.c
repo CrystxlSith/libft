@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 21:31:37 by crystal           #+#    #+#             */
-/*   Updated: 2024/03/28 13:55:55 by crystal          ###   ########.fr       */
+/*   Updated: 2024/03/29 12:11:06 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 
 	i = 0;
 	if (len == 0 || s1 == s2)
-		return (s1);
+		return ((char *)s1);
 	while (s2[i] && len)
 	{
 		j = 0;
