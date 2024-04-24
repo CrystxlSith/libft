@@ -6,32 +6,49 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 11:14:28 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/04/23 14:48:34 by crystal          ###   ########.fr       */
+/*   Updated: 2024/04/24 18:06:28 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	delete(void *content)
-{
-	free(content);
-}
-
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	
+	t_list	*current;
+	t_list	*next;
+
+	if (!del || !lst || !*lst)
+		return ;
+	current = *lst;
+	while (current)
+	{
+		next = current->next;
+		del(current->content);
+		free(current);
+		current = next;
+	}
+	*lst = NULL;
 }
 
-int main(void)
-{
-	t_list *list = ft_lstnew("manger");
-	t_list *list = ft_lstnew("du");
-	t_list *list = ft_lstnew("pain");
-	printf("%s", (char *)list->content);
-	ft_lstdelone(list, delete);
-	char *content = (char *)malloc(sizeof(char) * 6);
-	sprintf(content, "Hello");
-	t_list *elem = ft_lstnew(content);
-	ft_lstdelone(elem, &delete);
-	return 0;
-}
+// void print_list(t_list *head) {
+//     printf("Liste: ");
+//     while (head != NULL) {
+//         printf("%s ", (char *)head->content);
+//         head = head->next;
+//     }
+//     printf("\n");
+// }
+
+// int main(void) 
+// {
+// 	char *content = (char *)malloc(sizeof(char) * 6);
+// 	sprintf(content, "Hello");
+// 	char *end = (char *)malloc(sizeof(char) * 6);
+// 	sprintf(end, "world");
+// 	t_list *lst = ft_lstnew(content);
+// 	ft_lstadd_back(&lst, ft_lstnew(end));
+// 	print_list(lst);
+// 	ft_lstclear(&lst, &ft_delete);
+// 	printf("vide\n");
+// 		return 0;
+// }

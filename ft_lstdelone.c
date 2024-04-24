@@ -6,16 +6,12 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:34:46 by crystal           #+#    #+#             */
-/*   Updated: 2024/04/23 14:42:09 by crystal          ###   ########.fr       */
+/*   Updated: 2024/04/24 17:59:52 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	delete(void *content)
-{
-	free(content);
-}
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
@@ -33,6 +29,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 // 	char *content = (char *)malloc(sizeof(char) * 6);
 // 	sprintf(content, "Hello");
 // 	t_list *elem = ft_lstnew(content);
-// 	ft_lstdelone(elem, &delete);
+// 	printf("%s", (char *)elem->content);
+// 	ft_lstdelone(elem, &ft_delete);
+// 	printf("%s", (char *)elem->content);
 // 	return 0;
 // }
