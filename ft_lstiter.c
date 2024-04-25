@@ -3,30 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: wbelyne <wbelyne@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 21:00:00 by crystal           #+#    #+#             */
-/*   Updated: 2024/04/24 21:29:13 by crystal          ###   ########.fr       */
+/*   Updated: 2024/04/25 13:40:30 by wbelyne          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <ctype.h>
 
 void	ft_alph(void *content)
 {
-	size_t	i;
-
-	i = 0;
-	while (content[i])
+	char *str = (char *)content;
+	while (*str)
 	{
-		content[i] += 32;
-		content++;
+		*str = toupper(*str);
+		str++;
 	}
 }
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
 
 int main(void)
