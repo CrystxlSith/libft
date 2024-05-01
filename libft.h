@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/04/26 14:15:18 by crystal          ###   ########.fr       */
+/*   Updated: 2024/04/30 15:08:38 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,10 @@ void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
-
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+int	ft_strncmp(char *s1, char *s2, size_t n);
+int	ft_isprint(int c);
+void	ft_putnbr_fd(int n, int fd);
 #endif
