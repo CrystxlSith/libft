@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    mmm                                                :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 14:48:39 by crystal           #+#    #+#              #
-#    Updated: 2024/04/30 21:27:36 by crystal          ###   ########.fr        #
+#    Updated: 2024/05/01 14:06:15 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,11 +49,10 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
        ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
        ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
        ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-SRCSB = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
-	ft_lstsize_bonus.c ft_lstlast_bonus.c \
-	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-	ft_lstclear_bonus.c ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c
+SRCSB = ft_lstnew.c ft_lstadd_front.c \
+	ft_lstsize.c ft_lstlast.c \
+	ft_lstadd_back.c ft_lstdelone.c \
+	ft_lstclear.c ft_lstiter.c 
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
 NAME = libft.a
@@ -62,9 +61,14 @@ CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
-ifneq ($(shell uname), Darwin)
+ifneq ($(shell uname), crystal)
 breaker:
-			$(CC) -nostartfiles -shared -fPIC -ldl $(CFLAGS) -o libft.so $(SRC) $(SRCBONUS)
+			$(CC) -nostartfiles -shared -fPIC -ldl $(CFLAGS) -o libft.so $(SRCS) $(SRCSB)
+else
+breaker:
+			$(CC) -dynamiclib $(CFLAGS) -o libft.so $(SRCS) $(SRCSB) -L../obj -lmalloc
+endif
+
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
