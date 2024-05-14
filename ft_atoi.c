@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 19:23:10 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 11:39:07 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:38:24 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	result = 0;
 	sign = 1;
+	if (!nptr)
+		return (0);
 	while (nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-')

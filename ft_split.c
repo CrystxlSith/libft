@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 18:02:38 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 11:40:33 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:28:53 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	count = countword(s, c);
 	i = 0;
-	str = (char **)malloc(sizeof(char *) * (count + 1));
+	str = malloc(sizeof(char *) * (count + 1));
 	while (*s)
 	{
 		while (*s == c)
