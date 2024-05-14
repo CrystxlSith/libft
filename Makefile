@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
+#    By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 14:48:39 by crystal           #+#    #+#              #
-#    Updated: 2024/05/01 14:06:15 by crystal          ###   ########.fr        #
+#    Updated: 2024/05/14 11:59:05 by jopfeiff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,17 +61,11 @@ CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
-ifneq ($(shell uname), crystal)
-breaker:
-			$(CC) -nostartfiles -shared -fPIC -ldl $(CFLAGS) -o libft.so $(SRCS) $(SRCSB)
-else
-breaker:
-			$(CC) -dynamiclib $(CFLAGS) -o libft.so $(SRCS) $(SRCSB) -L../obj -lmalloc
-endif
-
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-
+so:
+	$(CC) -fPIC $(CFLAGS) $(SRC)
+	gcc -shared -o libft.so $(OBJ)
 ${NAME}: ${OBJS}
 	${LIBC} ${NAME} ${OBJS}
 
@@ -79,6 +73,7 @@ all: ${NAME}
 
 bonus: ${NAME} ${OBJSB}
 	${LIBC} ${NAME} ${OBJSB}
+
 clean:
 	${RM} ${OBJS} ${OBJSB}
 

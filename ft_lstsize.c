@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:41:45 by crystal           #+#    #+#             */
-/*   Updated: 2024/04/18 16:53:41 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/14 11:40:01 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	ft_lstsize(t_list *lst)
 }
 
 // int main() {
-//     // Création de quelques éléments de liste
 //     t_list *element1 = (t_list *)malloc(sizeof(t_list));
 //     t_list *element2 = (t_list *)malloc(sizeof(t_list));
 //     t_list *element3 = (t_list *)malloc(sizeof(t_list));
