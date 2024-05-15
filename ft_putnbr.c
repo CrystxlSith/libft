@@ -6,13 +6,13 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:22:30 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 11:40:26 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:30:46 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int	n)
+void	ft_putnbr(int n)
 {
 	long int	nb;
 

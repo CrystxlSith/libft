@@ -6,12 +6,11 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:34:46 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 11:39:37 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/15 14:30:28 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

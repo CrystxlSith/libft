@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 18:02:38 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 14:28:53 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/15 17:09:04 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrdup(const char *s, int j)
 {
-	int	i;
 	char	*dup;
+	int		i;
 
 	i = 0;
 	dup = (char *)malloc(sizeof(char) * (j + 1));
@@ -64,15 +64,17 @@ int	len_word(const char *str, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char 	**str;
-	int	i;
-	int	count;
-	int	j;
+	char	**str;
+	int		i;
+	int		count;
+	int		j;
 
 	j = 0;
 	count = countword(s, c);
 	i = 0;
 	str = malloc(sizeof(char *) * (count + 1));
+	if (!str)
+		return (NULL);
 	while (*s)
 	{
 		while (*s == c)

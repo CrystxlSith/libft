@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 19:23:10 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 12:38:24 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:52:11 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,11 @@ int	ft_atoi(const char *nptr)
 	}
 	return (result * sign);
 }
+// int main(int argc, char const *argv[])
+// {
+// 	int	nb;
+// 	if (argc == 2)
+// 		nb = ft_atoi(argv[1]);
+// 	printf("%d\n", nb);
+// 	return 0;
+// }
