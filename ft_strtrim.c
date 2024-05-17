@@ -6,11 +6,12 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:52:52 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 11:41:17 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:04:42 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "unistd.h"
 
 int	get_end(const char *s1, const char *set)
 {
@@ -21,7 +22,7 @@ int	get_end(const char *s1, const char *set)
 	len = ft_strlen(s1);
 	while (s1[i])
 	{
-		if (ft_strchr(set, s1[i]) == NULL)
+		if (ft_strchr(set, s1[i]) != NULL)
 			break ;
 		i++;
 	}
@@ -68,4 +69,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	newstr[i] = '\0';
 	return (newstr);
+}
+
+int main(void)
+{
+	
+	char *str;
+	str = ft_strtrim("tripouille   xxx", " x");
+	printf("%s", str);
+	return 0;
 }
