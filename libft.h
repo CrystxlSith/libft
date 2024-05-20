@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/05/14 11:41:34 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:45:07 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <limits.h>
 
 typedef struct	s_list
 {
