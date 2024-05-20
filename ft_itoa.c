@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:46:19 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/15 14:29:57 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:09:52 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	sizeint(long int n)
 	int	i;
 
 	i = 0;
+	if (n < 1)
+		i++;
 	while (n)
 	{
 		i++;
@@ -33,14 +35,14 @@ char	*ft_itoa(int n)
 
 	nb = n;
 	size = sizeint(nb);
-	result = (char *)malloc(sizeof(char) * size + 1);
+	result = (char *)malloc(sizeof(char) * (size + 1));
 	if (!result)
 		return (NULL);
 	if (nb < 0)
 	{
 		result[0] = '-';
 		nb *= -1;
-		size = size + 1;
+		size++;
 	}
 	result[size] = '\0';
 	while (nb)
@@ -51,11 +53,11 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
-// int main(int argc, char const *argv[])
-// {
-// 	char *str;
-// 	str = ft_itoa(atoi(argv[1]));
-// 	printf("%s", str);
-// 	free(str);
-// 	return 0;
-// }
+int main(void)
+{
+	char *str;
+	str = ft_itoa(INT_MIN);
+	printf("%s", str);
+	free(str);
+	return 0;
+}
