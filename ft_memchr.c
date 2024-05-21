@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:52:22 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/14 11:40:04 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:58:57 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ interprété comme un unsigned char) arrête l'opération.*/
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
+	if (c > 255)
+		c = c % 256;
 	while (n)
 	{
 		if (*(unsigned char *)s == c)

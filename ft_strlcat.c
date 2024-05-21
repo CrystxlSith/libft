@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 19:30:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/17 16:35:01 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:31:46 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	dlen;
 	size_t	slen;
 	size_t	i;
-	int	j;
+	int		j;
 
 	dlen = ft_strlen(dst);
 	slen = ft_strlen(src);
