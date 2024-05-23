@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:01:51 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/16 13:41:37 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/23 13:55:56 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (c == 0)
+	int	i;
+
+	i = 0;
+	if (c > 255)
+		c = c % 256;
+	while (s[i])
 	{
-		while (*s)
-			s++;
-		if (*s == c)
-			return ((char *)s);
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	while (*s)
-	{
-		if ((*s == c) || (!ft_isascii(c)))
-			return ((char *)s);
-		s++;
-	}
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
 	return (NULL);
 }

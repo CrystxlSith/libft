@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 13:47:21 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/15 14:33:38 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:26:19 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	unsigned int	i;
 
 	i = 0;
-	if (!dst || !src)
-		return (0);
 	if (size > 0)
 	{
 		while (--size && src[i])

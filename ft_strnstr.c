@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 21:31:37 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/15 16:40:56 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:38:40 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	k;
 
 	i = 0;
-	if (big == little || !little)
+	if (big == little || *little == '\0')
 		return ((char *)big);
 	while (big[i] && len)
 	{

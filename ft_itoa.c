@@ -6,13 +6,13 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 14:46:19 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/20 17:21:34 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:24:00 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	sizeint(long int n)
+static int	sizeint(long int n)
 {
 	int	i;
 

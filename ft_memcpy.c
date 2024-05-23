@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 00:44:55 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/05/21 09:52:33 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/23 13:28:56 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	d = (unsigned char *)dst;
 	i = 0;
+	if (!dst && !src)
+		return (NULL);
 	while (i < n)
 	{
 		*d = *(unsigned char *)src;

@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:19:03 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/20 17:25:58 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/23 13:53:37 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*nb;
+	long int	nb;
 
-	nb = ft_itoa(n);
-	if (nb)
-		ft_putstr_fd(nb, fd);
-	free(nb);
+	nb = n;
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = -nb;
+	}
+	if (nb >= 0 && nb <= 9)
+		ft_putchar_fd(nb + 48, fd);
+	else
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putnbr_fd(nb % 10, fd);
+	}
 }

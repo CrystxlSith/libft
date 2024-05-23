@@ -6,13 +6,13 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 18:02:38 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/21 10:42:26 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 10:23:43 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	countword(const char *str, char c)
+static int	countword(const char *str, char c)
 {
 	int	i;
 	int	j;
@@ -33,7 +33,7 @@ int	countword(const char *str, char c)
 	return (i);
 }
 
-char	*ft_strrdup(const char *s, int start, int end)
+static char	*ft_strrdup(const char *s, int start, int end)
 {
 	char	*dup;
 	int		i;

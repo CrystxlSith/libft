@@ -6,69 +6,61 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:52:52 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/20 10:15:49 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:14:04 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "unistd.h"
 
-int	get_end(const char *s1, const char *set)
+static int	ft_is_in_set(char c, const char *set)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	len = ft_strlen(s1);
-	while (s1[i])
+	while (*set)
 	{
-		if (ft_strchr(set, s1[i]) != NULL)
-			break ;
-		i++;
+		if (c == *set)
+			return (1);
+		set++;
 	}
-	return (len - i);
+	return (0);
 }
 
-int	get_start(const char *s1, const char *set)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s1[i])
+	while (src[i] && i < n)
 	{
-		if (ft_strrchr(set, s1[i]) == NULL)
-			break ;
+		dest[i] = src[i];
 		i++;
 	}
-	return (i);
+	dest[i] = '\0';
+	return (dest);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*newstr;
+	int		start;
+	int		end;
 	int		i;
-	int		j;
 
 	i = 0;
+	start = 0;
+	end = ft_strlen(s1);
 	if (!s1)
 		return (NULL);
 	if (!set)
 		return (ft_strdup(s1));
-	while (s1[i] && ft_strrchr(set, s1[i]) != NULL)
-		i++;
-	j = i;
-	while (s1[j] && ft_strchr(set, s1[j]) == NULL)
-		j++;
-	newstr = (char *)malloc(sizeof(char) * (j - i) + 1);
+	while (s1[start] && ft_is_in_set(s1[start], set))
+		start++;
+	while (end > start && ft_is_in_set(s1[end - 1], set))
+		end--;
+	newstr = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (!newstr)
 		return (NULL);
-	j = -1;
-	while (s1[i] && ft_strchr(set, s1[i]) == NULL)
-	{
-		newstr[++j] = s1[i];
-		i++;
-	}
-	newstr[j + 1] = '\0';
+	ft_strncpy(newstr, &s1[start], (end - start));
+	newstr[end - start] = '\0';
 	return (newstr);
 }
 

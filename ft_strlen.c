@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:44:36 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/05/14 11:40:59 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/23 11:19:04 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	if (!s)
-		return (0);
 	while (s[i])
 		i++;
 	return (i);
