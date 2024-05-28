@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:36:35 by wbelyne           #+#    #+#             */
-/*   Updated: 2024/05/21 10:44:52 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/25 19:00:54 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,10 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **alst, t_list *new);
+t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));

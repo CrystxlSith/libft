@@ -6,7 +6,7 @@
 #    By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 14:48:39 by crystal           #+#    #+#              #
-#    Updated: 2024/05/21 11:07:55 by jopfeiff         ###   ########.fr        #
+#    Updated: 2024/05/27 09:32:12 by jopfeiff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,12 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 SRCSB = ft_lstnew.c ft_lstadd_front.c \
 	ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c \
-	ft_lstclear.c ft_lstiter.c 
+	ft_lstclear.c ft_lstiter.c ft_lstmap.c 
 OBJS = ${SRCS:.c=.o}
 OBJSB = ${SRCSB:.c=.o}
 NAME = libft.a
 LIBC = ar rcs
-CC = cc
+CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
