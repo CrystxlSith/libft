@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+         #
+#    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 14:48:39 by crystal           #+#    #+#              #
-#    Updated: 2024/06/07 18:31:37 by jopfeiff         ###   ########.fr        #
+#    Updated: 2024/07/20 21:37:47 by crystal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ LIBC = ar rcs
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
+
+.SILENT:
 
 ${NAME}: ${OBJS}
 	${LIBC} ${NAME} ${OBJS}

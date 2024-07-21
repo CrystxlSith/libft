@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
+/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:36:23 by jopfeiff          #+#    #+#             */
-/*   Updated: 2024/06/07 11:53:37 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/20 21:06:10 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	print(unsigned int i, const char c)
 		if (i < 10)
 			print_nb(i);
 		else
-		{			
+		{
 			if (c == 'x')
 				print_char(i - 10 + 'a');
 			if (c == 'X')
