@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: crystal <crystal@student.42.fr>            +#+  +:+       +#+         #
+#    By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/30 14:48:39 by crystal           #+#    #+#              #
-#    Updated: 2024/07/20 21:37:47 by crystal          ###   ########.fr        #
+#    Updated: 2024/07/22 08:04:42 by jopfeiff         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
        ft_printf.c ft_printf_utils.c ft_print_str.c \
        ft_print_char.c ft_print_unsigned.c ft_print_hex.c \
        ft_print_ptr.c ft_print_nb.c get_next_line.c \
-       get_next_line_utils.c
+       get_next_line_utils.c ft_isspace.c
 SRCSB = ft_lstnew.c ft_lstadd_front.c \
 	ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c \
