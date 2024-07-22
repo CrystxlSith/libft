@@ -3,102 +3,165 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/05 10:59:17 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/07/17 19:08:39 by aperez-b         ###   ########.fr       */
+/*   Created: 2024/05/22 16:25:59 by jopfeiff          #+#    #+#             */
+/*   Updated: 2024/07/22 07:43:52 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+char	*new_start(char	*str)
+{
+	int		i;
+	int		j;
+	char	*adv_str;
+
+	i = 0;
+	j = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	if (!str[i])
+	{
+		free(str);
+		return (NULL);
+	}
+	adv_str = ft_calloc((ft_strlen(str) - i + 1), sizeof(char));
+	if (!adv_str)
+		return (NULL);
+	i += 1;
+	while (str[i])
+	{
+		adv_str[j] = str[i];
+		i++;
+		j++;
+	}
+	free(str);
+	return (adv_str);
+}
+
+char	*return_line(char *str)
+{
+	int		i;
+	char	*newstr;
+
+	i = 0;
+	if (!str[i])
+		return (NULL);
+	while (str[i] != '\n' && str[i])
+		i++;
+	newstr = ft_calloc(i + 2, sizeof(char));
+	i = 0;
+	while (str[i] && str[i] != '\n')
+	{
+		newstr[i] = str[i];
+		i++;
+	}
+	if (str[i] && str[i] == '\n')
+		newstr[i++] = '\n';
+	return (newstr);
+}
+
+char	*next_line(char *str, int fd)
+{
+	char	*buf;
+	int		bytes_read;
+
+	if (!str)
+		str = ft_calloc(1, 1);
+	bytes_read = 1;
+	buf = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	while (bytes_read > 0)
+	{
+		bytes_read = read(fd, buf, BUFFER_SIZE);
+		if (bytes_read < 0)
+		{
+			bytes_read = 0;
+			return (NULL);
+		}
+		buf[bytes_read] = 0;
+		str = ft_strjoin_gnl(str, buf);
+		if (ft_strchr(buf, '\n'))
+			break ;
+	}
+	free(buf);
+	return (str);
+}
+
 char	*get_next_line(int fd)
 {
-	static char	*buf[4096];
+	static char	*str[1024];
 	char		*line;
-	size_t		old_len;
 
-	if (fd < 0 || fd > 4095 || BUFFER_SIZE < 0)
-		return (NULL);
-	line = NULL;
-	if (gnl_strchr_i(buf[fd], '\n') == -1)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		old_len = gnl_strlen(buf[fd]);
-		buf[fd] = gnl_expand_buffer(buf[fd], fd);
-		if (old_len == gnl_strlen(buf[fd]) && buf[fd])
-			line = gnl_substr(buf[fd], 0, gnl_strlen(buf[fd]));
-	}
-	if (!buf[fd])
+		if (str[fd])
+		{
+			free(str[fd]);
+			str[fd] = NULL;
+			
+		}
 		return (NULL);
-	if (!line && gnl_strchr_i(buf[fd], '\n') != -1)
-		line = gnl_substr(buf[fd], 0, gnl_strchr_i(buf[fd], '\n') + 1);
-	if (line)
-	{
-		buf[fd] = gnl_shrink_buffer(buf[fd], line);
-		return (line);
 	}
-	return (get_next_line(fd));
+	str[fd] = next_line(str[fd], fd);
+	if (!str[fd])
+		return (NULL);
+	line = return_line(str[fd]);
+	str[fd] = new_start(str[fd]);
+	return (line);
 }
 
-char	*gnl_shrink_buffer(char *buf, char *line)
-{
-	char	*newbuf;
-	int		line_len;
-
-	if (!buf || !line)
-		return (buf);
-	line_len = gnl_strlen(line);
-	if ((int)gnl_strlen(buf) == line_len)
-	{
-		free(buf);
-		return (NULL);
-	}
-	newbuf = gnl_substr(buf, line_len, gnl_strlen(buf) - line_len);
-	free(buf);
-	return (newbuf);
-}
-
-char	*gnl_expand_buffer(char *buf, int fd)
-{
-	char	*newbuf;
-	int		newlen;
-	char	*aux;
-
-	aux = gnl_newread(fd);
-	if (!aux)
-		return (NULL);
-	if (!aux[0])
-	{
-		free(aux);
-		return (buf);
-	}
-	if (!buf)
-		return (aux);
-	newlen = gnl_strlen(buf) + gnl_strlen(aux);
-	newbuf = malloc(newlen + 1);
-	if (!newbuf)
-		return (NULL);
-	gnl_strlcpy(newbuf, buf, newlen + 1);
-	gnl_strlcat(newbuf, aux, newlen + 1);
-	free(buf);
-	free(aux);
-	return (newbuf);
-}
-
-char	*gnl_newread(int fd)
-{
-	char	*aux;
-	int		nbytes;
-
-	aux = malloc(BUFFER_SIZE + 1);
-	if (!aux)
-		return (NULL);
-	nbytes = read(fd, aux, BUFFER_SIZE);
-	if (nbytes < 0)
-	{
-		free(aux);
-		return (NULL);
-	}
-	aux[nbytes] = '\0';
-	return (aux);
-}
+// int main(void) {
+//     int fd1, fd2, fd3;
+//     char *line;
+//     fd1 = open("text.txt", O_RDONLY);
+//     if (fd1 < 0) {
+//         perror("Error opening test.txt");
+//         return 1;
+//     }
+//     fd2 = open("test2.txt", O_RDONLY);
+//     if (fd2 < 0) {
+//         perror("Error opening test2.txt");
+//         return 1;
+//     }
+//     fd3 = open("test3.txt", O_RDONLY);
+//     if (fd3 < 0) {
+//         perror("Error opening test3.txt");
+//         return 1;
+//     }
+//     line = get_next_line(fd1);
+//     if (line) {
+//         printf("Test1: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd2);
+//     if (line) {
+//         printf("Test2: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd3);
+//     if (line) {
+//         printf("Test3: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd1);
+//     if (line) {
+//         printf("Test1: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd2);
+//     if (line) {
+//         printf("Test2: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd3);
+//     if (line) {
+//         printf("Test3: %s\n", line);
+//         free(line);
+//     }
+//     close(fd1);
+//     close(fd2);
+//     close(fd3);
+//     return 0;
+// }
