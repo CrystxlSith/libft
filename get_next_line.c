@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:25:59 by jopfeiff          #+#    #+#             */
-/*   Updated: 2024/07/22 07:43:52 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/07/23 07:37:17 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ char	*get_next_line(int fd)
 		{
 			free(str[fd]);
 			str[fd] = NULL;
-			
 		}
 		return (NULL);
 	}
